@@ -10,13 +10,16 @@ body {
     margin: auto;
     width: 90vw;
     height: 90vh;
+    display:flex;
+    flex-direction: column;
     border: red solid 1px;
 }
 
 .picture-container {
+    margin: auto;
     overflow: hidden;
-    width: 80vw;
-    height: 80vh;
+    width: 100%;
+    height: 85%;
 }
 
 .picture-container > img {
@@ -24,57 +27,90 @@ body {
     object-fit: contain;
     width: 80vw;
     height: 70vh;
+    margin: auto;
 }
 
-.container > label {
+.container label {
     transition: 0.2s ease-in;
+}
+
+.inner-radio {
+    transition: 0.3s ease-in-out;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .radio {
     display: none;
 }
 
-img+p {
+.text-container>p {
     position: relative;
     display: none;
-    font-size: 5rem;
+    font-size: 5vh;
     opacity: 0;
     margin: 0;
 }
 
 
 
-.radio:hover+label {
+#radio1:hover~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
+#radio2:hover~.bottom-container>.radio-container>.radio-label:nth-child(2)>.inner-radio,
+#radio3:hover~.bottom-container>.radio-container>.radio-label:nth-child(3)>.inner-radio,
+#radio4:hover~.bottom-container>.radio-container>.radio-label:nth-child(4)>.inner-radio {
     background-color: plum;
 }
 
-.radio:checked+label {
+#radio1:checked~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
+#radio2:checked~.bottom-container>.radio-container>.radio-label:nth-child(2)>.inner-radio,
+#radio3:checked~.bottom-container>.radio-container>.radio-label:nth-child(3)>.inner-radio,
+#radio4:checked~.bottom-container>.radio-container>.radio-label:nth-child(4)>.inner-radio {
     background-color: orchid;
+}
+
+#radio1:active~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
+#radio2:active~.bottom-container>.radio-container>.radio-label:nth-child(2)>.inner-radio,
+#radio3:active~.bottom-container>.radio-container>.radio-label:nth-child(3)>.inner-radio,
+#radio4:active~.bottom-container>.radio-container>.radio-label:nth-child(4)>.inner-radio {
+    background-color: gold;
 }
 
 .radio-label {
     display: inline-block;
-    width: 5vw;
-    height: 5vw;
-    background-color: orangered;
-    background-size: auto;
+    width: 3vw;
+    height: 3vw;
+    margin: 1vw;
+    cursor: pointer;
+}
+.inner-radio {
+    margin: 15% 15%;
+    display: inline-block;
     border-radius: 50%;
+    height: 70%;
+    width: 70%;
+    background-color: green;
 }
 
 
-#radio1:checked ~ .picture-container>.image1,
-#radio2:checked ~ .picture-container>.image2,
-#radio3:checked ~ .picture-container>.image3,
-#radio4:checked ~ .picture-container>.image4
+
+#radio1:checked~.picture-container>.image1,
+#radio2:checked~.picture-container>.image2,
+#radio3:checked~.picture-container>.image3,
+#radio4:checked~.picture-container>.image4
   {
     display: block;
     animation: slide-picture 0.9s ease forwards;
 }
 
-#radio1:checked ~ .picture-container>.image1+p,
-#radio2:checked ~ .picture-container>.image2+p,
-#radio3:checked ~ .picture-container>.image3+p,
-#radio4:checked ~ .picture-container>.image4+p  {
+
+#radio1:checked ~ .bottom-container>.text-container>p:nth-child(1),
+#radio2:checked ~ .bottom-container>.text-container>p:nth-child(2),
+#radio3:checked ~ .bottom-container>.text-container>p:nth-child(3),
+#radio4:checked ~ .bottom-container>.text-container>p:nth-child(4)  {
     display: block;
     left: 0;
     animation: slide-text 0.9s ease 0.5s forwards;
@@ -94,12 +130,10 @@ img+p {
 @keyframes slide-picture {
     from {     
             transform: rotate(45deg) scale(0.8);
-            /* transform: scale(0.8); */
             opacity: 0.1;
     }
     to {   
         transform: rotate(0deg) ;
-        /* transform: scale(1); */
         opacity: 1;
     }
 }
