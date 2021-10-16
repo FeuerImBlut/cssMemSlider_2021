@@ -1,0 +1,108 @@
+html {
+    margin: 0;
+}
+
+body {
+    background-color: olive;
+}
+
+.container {
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    border: red solid 1px;
+}
+
+.picture-container {
+    overflow: hidden;
+    width: 80vw;
+    height: 80vh;
+}
+
+.picture-container > img {
+    display: none;
+    object-fit: contain;
+    width: 80vw;
+    height: 70vh;
+}
+
+.container > label {
+    transition: 0.2s ease-in;
+}
+
+.radio {
+    display: none;
+}
+
+img+p {
+    position: relative;
+    display: none;
+    font-size: 5rem;
+    opacity: 0;
+    margin: 0;
+}
+
+
+
+.radio:hover+label {
+    background-color: plum;
+}
+
+.radio:checked+label {
+    background-color: orchid;
+}
+
+.radio-label {
+    display: inline-block;
+    width: 5vw;
+    height: 5vw;
+    background-color: orangered;
+    background-size: auto;
+    border-radius: 50%;
+}
+
+
+#radio1:checked ~ .picture-container>.image1,
+#radio2:checked ~ .picture-container>.image2,
+#radio3:checked ~ .picture-container>.image3,
+#radio4:checked ~ .picture-container>.image4
+  {
+    display: block;
+    animation: slide-picture 0.9s ease forwards;
+}
+
+#radio1:checked ~ .picture-container>.image1+p,
+#radio2:checked ~ .picture-container>.image2+p,
+#radio3:checked ~ .picture-container>.image3+p,
+#radio4:checked ~ .picture-container>.image4+p  {
+    display: block;
+    left: 0;
+    animation: slide-text 0.9s ease 0.5s forwards;
+}
+
+@keyframes slide-text {
+    from {
+            left: 50px;
+            opacity: 0;
+    }
+    to {
+            left: 0px;
+            opacity: 1;
+    }
+}
+
+@keyframes slide-picture {
+    from {     
+            transform: rotate(45deg) scale(0.8);
+            /* transform: scale(0.8); */
+            opacity: 0.1;
+    }
+    to {   
+        transform: rotate(0deg) ;
+        /* transform: scale(1); */
+        opacity: 1;
+    }
+}
+
+
+
