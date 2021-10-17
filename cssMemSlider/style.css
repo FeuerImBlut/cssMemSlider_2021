@@ -49,9 +49,10 @@ body {
 .text-container>p {
     position: relative;
     display: none;
-    font-size: 5vh;
+    font-size: 4vh;
     opacity: 0;
     margin: 0;
+    color: cornsilk;
 }
 
 .text-container {
@@ -90,7 +91,7 @@ body {
     display: inline-block;
     width: 3vw;
     height: 3vw;
-    margin: 1vw;
+    margin: 0.5vw;
     cursor: pointer;
 }
 .inner-radio {
@@ -101,7 +102,7 @@ body {
     width: 70%;
     background-color: aqua;
     box-shadow: 0vw 0vw 1vw #000000;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 #radio1:checked~.picture-container>.image1,
@@ -143,6 +144,43 @@ body {
         transform: rotate(0deg) ;
         opacity: 1;
     }
+}
+
+@media (max-width: 768px) { 
+
+    .container {
+        width: 95vw;
+        height: 95vw;
+    }
+
+    .text-container>p {
+        font-size: 6vh;
+    }
+
+    .text-container {
+        width: 100%;
+    }
+
+    .radio-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .radio-label {
+        width: 7vw;
+        height: 7vw;
+        margin: 0.5vw;
+    }
+
+    .bottom-container {
+        height: 40%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+        row-gap: 10%;
+    }
+
+
 }
 
 
