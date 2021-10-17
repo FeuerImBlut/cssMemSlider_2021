@@ -13,7 +13,6 @@ body {
     display:flex;
     flex-direction: column;
     row-gap: 5%;
-    border: red solid 1px;
 }
 
 .picture-container {
@@ -26,9 +25,8 @@ body {
 .picture-container > img {
     display: none;
     object-fit: contain;
-    width: 80vw;
-    max-height: 100%;
-    margin: auto;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .container label {
