@@ -3,20 +3,21 @@ html {
 }
 
 body {
-    background-color: olive;
+    background-color: darkslategray;
 }
 
 .container {
     margin: auto;
-    width: 90vw;
-    height: 90vh;
+    width: 95vw;
+    height: 95vh;
     display:flex;
     flex-direction: column;
+    row-gap: 5%;
     border: red solid 1px;
 }
 
 .picture-container {
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
     width: 100%;
     height: 85%;
@@ -26,7 +27,7 @@ body {
     display: none;
     object-fit: contain;
     width: 80vw;
-    height: 70vh;
+    max-height: 100%;
     margin: auto;
 }
 
@@ -34,11 +35,8 @@ body {
     transition: 0.2s ease-in;
 }
 
-.inner-radio {
-    transition: 0.3s ease-in-out;
-}
-
 .bottom-container {
+    height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -56,20 +54,29 @@ body {
     margin: 0;
 }
 
+.text-container {
+    width: 70%;
+}
 
+.radio-container {
+    width: 30%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
 
 #radio1:hover~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
 #radio2:hover~.bottom-container>.radio-container>.radio-label:nth-child(2)>.inner-radio,
 #radio3:hover~.bottom-container>.radio-container>.radio-label:nth-child(3)>.inner-radio,
 #radio4:hover~.bottom-container>.radio-container>.radio-label:nth-child(4)>.inner-radio {
-    background-color: plum;
+    background-color: lawngreen;
 }
 
 #radio1:checked~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
 #radio2:checked~.bottom-container>.radio-container>.radio-label:nth-child(2)>.inner-radio,
 #radio3:checked~.bottom-container>.radio-container>.radio-label:nth-child(3)>.inner-radio,
 #radio4:checked~.bottom-container>.radio-container>.radio-label:nth-child(4)>.inner-radio {
-    background-color: orchid;
+    background-color: seagreen;
 }
 
 #radio1:active~.bottom-container>.radio-container>.radio-label:nth-child(1)>.inner-radio,
@@ -92,10 +99,10 @@ body {
     border-radius: 50%;
     height: 70%;
     width: 70%;
-    background-color: green;
+    background-color: aqua;
+    box-shadow: 0vw 0vw 1vw #000000;
+    transition: 0.3s ease-in-out;
 }
-
-
 
 #radio1:checked~.picture-container>.image1,
 #radio2:checked~.picture-container>.image2,
